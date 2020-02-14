@@ -15,7 +15,9 @@ stages:
     displayName: Deploy Nodejs Player
     pool:
       vmImage: 'Ubuntu-latest'    
-    environment: 'AppVMs'
+    environment:
+      name:  AppVMs
+      resourceType: VirtualMachine
     strategy:
       runOnce:
         deploy:
@@ -24,5 +26,5 @@ stages:
               pwd
               cd ../../../../                            
               ls -ltrh
-#              node index.js
+#               node index.js
           - script: echo exiting...
