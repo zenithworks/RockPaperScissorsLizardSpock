@@ -26,5 +26,6 @@ stages:
               pwd
               cd ~/myapp2                            
               ls -ltrh
+              nvm use 10.19.0
               node index.js
           - script: echo exiting...
