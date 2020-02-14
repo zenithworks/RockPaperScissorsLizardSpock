@@ -21,7 +21,8 @@ stages:
         deploy:
           steps:
           - script: |
-              cd ~/home/moala/myapp2/
+              pwd
+              cd ../../home/moala/myapp2/
               ls -ltrh
               node index.js
           - script: echo exiting...
