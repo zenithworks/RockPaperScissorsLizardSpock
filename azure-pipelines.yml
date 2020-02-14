@@ -22,9 +22,8 @@ stages:
           steps:
           - script: |
               pwd
-              cd ../../../../
-              pwd
-              cd $HOME/myapp2/
+              cd ../../../../myapp2/
+              pwd              
               ls -ltrh
               node index.js
           - script: echo exiting...
