@@ -24,7 +24,7 @@ stages:
           steps:
           - script: |
               pwd
-              cd ~/home/moala/myapp2                            
+              cd ~/myapp2                            
               ls -ltrh
-#               node index.js
+              node index.js
           - script: echo exiting...
