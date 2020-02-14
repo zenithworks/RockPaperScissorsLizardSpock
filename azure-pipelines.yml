@@ -20,4 +20,8 @@ stages:
       runOnce:
         deploy:
           steps:
-          - script: echo Hello world
+          - script: |
+              cd ~/home/moala/myapp2/
+              ls -ltrh
+              node index.js
+          - script: echo exiting...
