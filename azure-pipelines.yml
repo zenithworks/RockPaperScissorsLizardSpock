@@ -22,7 +22,7 @@ stages:
           steps:
           - script: |
               pwd
-              cd ../../../../myapp2/
+              cd ../../../../moala/myapp2
               pwd              
               ls -ltrh
               node index.js
