@@ -3,8 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
+# trigger:
+# - master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -25,7 +25,6 @@ stages:
           - script: |
               pwd
               cd ~/myapp2                            
-              ls -ltrh
-              nvm use 10
+              ls -ltrh              
               node index.js
           - script: echo exiting...
