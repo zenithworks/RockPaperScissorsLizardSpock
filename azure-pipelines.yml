@@ -33,9 +33,7 @@ stages:
     pool:
       vmImage: 'Ubuntu-latest'
     steps:
-    - script: |
-        pwd
-        ls -ltrh        
+    - script: |               
         cp -r ./Source/Services/RPSLS.NodePlayer.Api .
         cd RPSLS.NodePlayer.Api
         npm install
@@ -62,12 +60,10 @@ stages:
       runOnce:
         deploy:
           steps:
-          - script: |
-              pwd              
-              rm -rf NodePlayerService
-              mv /home/moala/azagent/_work/1/NodePlayerService .
-              pwd
-              cd NodePlayerService               
-              ls -ltrh              
+          - script: |              
+              ps -ef | grep index.js | grep -v grep | awk '{print $2}' | xargs kill
+              rm -rf NodePlayerService              
+              mv /home/moala/azagent/_work/1/NodePlayerService .       
+              cd NodePlayerService
               nohup node index.js >> logs_nodejsservice.txt &
 
