@@ -4,7 +4,14 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  branches:
+   include:
+     - master
+  paths:
+    include:
+      - Source/Services/RPSLS.NodePlayer.Api/*
+  
+
 
 # resources:
 #   repositories:
@@ -55,6 +62,10 @@ stages:
           steps:
           - script: |
               pwd
-              ls -ltrh            
-#              node index.js
-          - script: echo exiting..
+              ls -ltrh 
+              mv -r /home/moala/azagent/_work/1/NodePlayerService .
+              pwd
+              cd NodePlayerService           
+              ls -ltrh
+              node index.js
+
