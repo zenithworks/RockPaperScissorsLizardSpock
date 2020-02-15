@@ -6,10 +6,31 @@
 # trigger:
 # - master
 
+# resources:
+#   repositories:
+#   - repository: RPSLS
+#     type: github
+#     name: zenithworks/RockPaperScissorsLizardSpock
+#     endpoint: 
+    
+
+
 pool:
   vmImage: 'ubuntu-latest'
 stages:
+- stage: build
+  jobs:
+  - job: Install_node
+    displayName: Install node
+    pool:
+      vmImage: 'Ubuntu-latest'
+    steps:
+    - script: |
+        pwd
+        ls -ltrh
+    
 - stage: deploy
+  dependsOn: build
   jobs:
   - deployment: DeployNodeJsPlayer
     displayName: Deploy Nodejs Player
@@ -28,3 +49,5 @@ stages:
               ls -ltrh              
               node index.js
           - script: echo exiting...
+
+
