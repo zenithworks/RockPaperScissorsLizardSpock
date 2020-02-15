@@ -27,8 +27,8 @@ pool:
 stages:
 - stage: build
   jobs:
-  - job: Install_node
-    displayName: Install node
+  - job: build_service
+    displayName: Build Nodejs Player
     pool:
       vmImage: 'Ubuntu-latest'
     steps:
@@ -63,7 +63,8 @@ stages:
           - script: |
               pwd
               ls -ltrh 
-              mv -r /home/moala/azagent/_work/1/NodePlayerService .
+              rm -rf NodePlayerService
+              mv -r ~/home/moala/azagent/_work/1/NodePlayerService .
               pwd
               cd NodePlayerService           
               ls -ltrh
