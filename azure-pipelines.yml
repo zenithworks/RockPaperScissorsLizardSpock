@@ -35,6 +35,7 @@ stages:
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: '$(System.DefaultWorkingDirectory)/RPSLS.NodePlayer.Api'
+        artifact: 'NodePlayerService'
         publishLocation: 'pipeline'
 
   
