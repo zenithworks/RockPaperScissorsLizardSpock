@@ -10,6 +10,7 @@ trigger:
   paths:
     include:
       - Source/Services/RPSLS.NodePlayer.Api/*
+      - azure-pipelines.yml
   
 
 
@@ -64,7 +65,7 @@ stages:
               pwd
               ls -ltrh 
               rm -rf NodePlayerService
-              mv -r ~/home/moala/azagent/_work/1/NodePlayerService .
+              mv /home/moala/azagent/_work/1/NodePlayerService .
               pwd
               cd NodePlayerService           
               ls -ltrh
