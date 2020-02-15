@@ -27,27 +27,37 @@ stages:
     steps:
     - script: |
         pwd
-        ls -ltrh
+        ls -ltrh        
+        cp -r ./Source/Services/RPSLS.NodePlayer.Api .
+        cd RPSLS.NodePlayer.Api
+        npm install
+        npm prune --production
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(System.DefaultWorkingDirectory)/RPSLS.NodePlayer.Api'
+        publishLocation: 'pipeline'
+
+
     
-- stage: deploy
-  dependsOn: build
-  jobs:
-  - deployment: DeployNodeJsPlayer
-    displayName: Deploy Nodejs Player
-    pool:
-      vmImage: 'Ubuntu-latest'    
-    environment:
-      name:  AppVMs
-      resourceType: VirtualMachine
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - script: |
-              pwd
-              cd ~/myapp2                            
-              ls -ltrh              
-              node index.js
-          - script: echo exiting...
+# - stage: deploy
+#   dependsOn: build
+#   jobs:
+#   - deployment: DeployNodeJsPlayer
+#     displayName: Deploy Nodejs Player
+#     pool:
+#       vmImage: 'Ubuntu-latest'    
+#     environment:
+#       name:  AppVMs
+#       resourceType: VirtualMachine
+#     strategy:
+#       runOnce:
+#         deploy:
+#           steps:
+#           - script: |
+#               pwd
+#               cd ~/myapp2                            
+#               ls -ltrh              
+#               node index.js
+#           - script: echo exiting...
 
 
