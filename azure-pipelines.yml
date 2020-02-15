@@ -55,7 +55,7 @@ stages:
     pool:
       vmImage: 'Ubuntu-latest'    
     environment:
-      name:  AppVMs
+      name:  AppVMs:rai-vm-6
       resourceType: VirtualMachine
     strategy:
       runOnce:
