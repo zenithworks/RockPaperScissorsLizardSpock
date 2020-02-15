@@ -63,12 +63,11 @@ stages:
         deploy:
           steps:
           - script: |
-              pwd
-              ls -ltrh 
+              pwd              
               rm -rf NodePlayerService
               mv /home/moala/azagent/_work/1/NodePlayerService .
               pwd
-              cd NodePlayerService           
-              ls -ltrh
-              node index.js
+              cd NodePlayerService               
+              ls -ltrh              
+              nohup node index.js >> logs_nodejsservice.txt &
 
